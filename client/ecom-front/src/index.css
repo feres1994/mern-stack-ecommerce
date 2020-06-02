@@ -1,0 +1,37 @@
+hmtl {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font: 1.6rem helvetica;
+  margin: 0;
+  min-height: 100vh;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: #ff8000;
+}
+/********css grid system***********/
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+  grid-template-columns: 1fr; /* one fragement for the column because we have one col */
+  grid-template-rows: 5rem 1fr 5rem; /* we have three rows 5rem header 5 rem footer the other is one fragemet main */
+  min-height: 100vh;
+}
+
+/**************start main **************/
+.main {
+  grid-area: main;
+}
+
+/*************end main*****************/
+.footer {
+  grid-area: footer;
+}

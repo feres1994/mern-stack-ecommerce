@@ -1,0 +1,63 @@
+/**************start header ***************/
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  background: blue;
+  padding: 0.5rem;
+}
+.amazona-logo a {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.amazona-links a:hover {
+  color: #ff8000;
+}
+/*header sidebar */
+.amazona-logo button {
+  font-size: 3rem;
+  padding: 0.5rem;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.side-bar {
+  position: fixed;
+  background: white;
+  height: 100vh;
+  border: solid;
+  transform: translateX(-31rem);
+  width: 30rem;
+  transition: all 0.3s ease-in-out;
+}
+.side-bar.open {
+  transform: translateX(0);
+}
+.sideBar-title-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sideBar-title-button button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1rem;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  padding: 15px;
+  border: 1px solid;
+  color: black;
+  background: none;
+  cursor: pointer;
+}
+/* end header sidebar */
+/**************end header ***************/

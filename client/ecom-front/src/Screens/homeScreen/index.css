@@ -1,0 +1,39 @@
+.products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.products li {
+  flex: 1 0 34rem; /* flex grow shrink and width with rem*/
+  margin: 1rem;
+  padding: 0px;
+  height: 34rem;
+  list-style-type: none;
+  border: 0.1rem solid #c0c0c0;
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.product-name a {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.product-brand {
+  font-size: 1.2rem;
+  color: #808080;
+}
+.product img {
+  max-width: 34rem;
+  max-height: 34rem;
+}
+.price {
+  font-size: 2rem;
+}
+.product-rating {
+  margin-bottom: 1rem;
+}
