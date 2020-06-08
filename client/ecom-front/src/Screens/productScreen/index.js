@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { products } from '../../data';
+import { useSelector, useDispatch } from 'react-redux';
+import { getProductFromApi } from '../../actions/productDetailAction';
 import './index.css';
-export default function index(props) {
-  const product = products.find((x) => x.id === props.match.params.id);
-  console.log(product);
-  return (
+export default function Index(props) {
+  const productDetails = useSelector((state) => state.productDetail);
+  const { product, loading, error } = productDetails;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProductFromApi(props.match.params.id));
+  }, []);
+  return loading ? (
+    <div>loading...</div>
+  ) : error ? (
+    <div>{error}</div>
+  ) : (
     <div>
       <div>
         <Link to="/">back to results</Link>

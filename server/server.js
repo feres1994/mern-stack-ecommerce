@@ -33,7 +33,17 @@ app.use(cors());
 app.get('/products', (req, res) => {
   res.send(products);
 });
-
+app.get('/products/:id', (req, res) => {
+  const productId = req.params.id;
+  const product = products.find((x) => x.id === productId);
+  if (product) {
+    res.send(product);
+  } else {
+    res.status(404).send({
+      msg: 'product not found',
+    });
+  }
+});
 app.listen(5000, (err) => {
   if (err) {
     console.log(err);
