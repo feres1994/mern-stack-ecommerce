@@ -12,7 +12,7 @@ function App() {
       <Header />
       <main className="main">
         <div className="content">
-          <Route path="/" exat={true} component={Home} />
+          <Route path="/" exact={true} component={Home} />
           <Route path="/products/:id" component={ProductDetail} />
         </div>
       </main>

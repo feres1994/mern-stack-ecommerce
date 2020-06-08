@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './index.css';
 export default function index() {
   const openMenu = () => {
@@ -12,7 +13,7 @@ export default function index() {
       <header className="header">
         <div className="amazona-logo">
           <button onClick={openMenu}>&#9776;</button>
-          <a href="index.html">amazona</a>
+          <Link to="/">amazona</Link>
         </div>
         <div className="amazona-links">
           <a>Sign in</a>
