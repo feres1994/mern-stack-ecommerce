@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../../actions/cartAction';
+import { addToCart, removeProductFromCart } from '../../actions/cartAction';
 import './index.css';
 export default function Index(props) {
   const productId = props.match.params.id;
@@ -8,6 +9,7 @@ export default function Index(props) {
     ? Number(props.location.search.split('=')[1])
     : 1;
 
+  console.log(quantity);
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
   const dispatch = useDispatch();
@@ -32,17 +34,29 @@ export default function Index(props) {
               <li>
                 <img src={el.image} alt="" />
                 <div className="product-cart-info">
-                  <div className="product-cart-name">{el.name}</div>
+                  <div className="product-cart-name">
+                    <Link to={`/products/${el.id}`}>{el.name}</Link>
+                  </div>
+                  <button
+                    onClick={() => dispatch(removeProductFromCart(productId))}
+                  >
+                    delete product
+                  </button>
                   <div className="product-cart-qty">
                     Qty:{' '}
-                    <select>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
+                    <select
+                      value={el.quantity}
+                      onChange={(e) => {
+                        return dispatch(addToCart(productId, e.target.value));
+                      }}
+                    >
+                      <option valu="1">1</option>
+                      <option valu="2">2</option>
+                      <option valu="3">3</option>
                     </select>
                   </div>
-                  <div className="product-cart-price">{el.price}</div>
                 </div>
+                <div className="product-cart-price">{el.price}</div>
               </li>
             ))
           )}
@@ -50,8 +64,8 @@ export default function Index(props) {
       </div>
       <div className="cart-action">
         <h3>
-          Subtototal : {cartItems.reduce((a, b) => a + b.quantity, 0)} items : ${' '}
-          {cartItems.reduce((a, b) => a + b.quantity * b.price, 0)}
+          Subtototal : ({cartItems.reduce((a, b) => a + b.quantity, 0)} items) :
+          $ {cartItems.reduce((a, b) => a + b.quantity * b.price, 0)}
         </h3>
         <button disabled={cartItems.length === 0}>proceed to checkout</button>
       </div>
