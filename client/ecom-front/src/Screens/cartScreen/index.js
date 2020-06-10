@@ -19,6 +19,10 @@ export default function Index(props) {
       dispatch(addToCart(productId, quantity));
     }
   }, []);
+
+  const checkoutHandler = () => {
+    props.history.push(`/signin?redirect=shipping`);
+  };
   return (
     <div className="cart">
       <div className="cart-list">
@@ -38,7 +42,7 @@ export default function Index(props) {
                     <Link to={`/products/${el.id}`}>{el.name}</Link>
                   </div>
                   <button
-                    onClick={() => dispatch(removeProductFromCart(productId))}
+                    onClick={() => dispatch(removeProductFromCart(el.id))}
                   >
                     delete product
                   </button>
@@ -47,7 +51,7 @@ export default function Index(props) {
                     <select
                       value={el.quantity}
                       onChange={(e) => {
-                        return dispatch(addToCart(productId, e.target.value));
+                        return dispatch(addToCart(el.id, e.target.value));
                       }}
                     >
                       <option valu="1">1</option>
@@ -67,7 +71,9 @@ export default function Index(props) {
           Subtototal : ({cartItems.reduce((a, b) => a + b.quantity, 0)} items) :
           $ {cartItems.reduce((a, b) => a + b.quantity * b.price, 0)}
         </h3>
-        <button disabled={cartItems.length === 0}>proceed to checkout</button>
+        <button disabled={cartItems.length === 0} onClick={checkoutHandler}>
+          proceed to checkout
+        </button>
       </div>
     </div>
   );
