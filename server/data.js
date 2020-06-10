@@ -8,6 +8,7 @@ export const products = [
     price: 60,
     rate: '4.5',
     reviews: '10',
+    countInStock: 0,
   },
 
   {
@@ -19,6 +20,7 @@ export const products = [
     price: 60,
     rate: '4.5',
     reviews: '10',
+    countInStock: 12,
   },
   {
     id: '3',
@@ -29,6 +31,7 @@ export const products = [
     price: 60,
     rate: '4.5',
     reviews: '10',
+    countInStock: 4,
   },
   {
     id: '4',
@@ -39,6 +42,7 @@ export const products = [
     price: 60,
     rate: '4.5',
     reviews: '10',
+    countInStock: 100,
   },
   {
     id: '5',
@@ -49,6 +53,7 @@ export const products = [
     price: 60,
     rate: '4.5',
     reviews: '10',
+    countInStock: 20,
   },
   {
     id: '6',
@@ -59,5 +64,6 @@ export const products = [
     price: 60,
     rate: '4.5',
     reviews: '10',
+    countInStock: 5,
   },
 ];

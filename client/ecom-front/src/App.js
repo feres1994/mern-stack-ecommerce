@@ -4,6 +4,7 @@ import Header from './components/header';
 //screens
 import Home from './Screens/homeScreen';
 import ProductDetail from './Screens/productScreen';
+import CartScreen from './Screens/cartScreen';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <div className="content">
           <Route path="/" exact={true} component={Home} />
           <Route path="/products/:id" component={ProductDetail} />
+          <Route path="/cart/:id?" component={CartScreen} />
         </div>
       </main>
       <footer className="footer">all rights are reserved</footer>
